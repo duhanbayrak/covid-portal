@@ -1,0 +1,24 @@
+{
+  "name": "covid-19",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.23.0",
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.10",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "file-system": "^2.2.2",
+    "jsdom": "^18.0.0",
+    "nodemon": "^2.0.13",
+    "request": "^2.88.2",
+    "scraperapi-sdk": "^1.0.6"
+  }
+}

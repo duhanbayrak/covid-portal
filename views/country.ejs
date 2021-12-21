@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+    <title>Document</title>
+</head>
+<%function divideNumber(number) {%>
+    <%return number.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1'+".");%>
+<%}%>
+<body style="background-color: #EEEE;">
+    <div class="container col-lg-11 c-container">
+        <div class="c-head">
+            <div class="back">
+                <a href="/"><i class="fas fa-arrow-left"></i></a>
+            </div>
+            <div class="global-btn">
+                <a href=""><i class="fas fa-globe"></i> <span>Küresel</span> </a>
+            </div>
+
+            <div class="selected-country" id="selected-country">
+                <img class="country-img" src="<%= data.countryInfo.flag %> " alt="">
+                <h5 class="px-2 mt-2">
+                    <%= data.country %>
+                </h5>
+
+            </div>
+
+        </div>
+        <div class="c-body mx-3 mt-5">
+            <div id="c-head">
+                <h1><i class="fas fa-globe-europe"></i>
+                    <%= data.country %>
+                </h1>
+                <div class="col-sm c-details">
+                    <h6>Nufüs</h6>
+                    <h5>
+                        <%= divideNumber(data.population) %>
+                    </h5>
+                </div>
+            </div>
+
+            <div class="c-info">
+
+                <div class="c-new" id="newCases">
+                    <h3>+<%= divideNumber(data.todayCases) %>
+                    </h3>
+                    <h6>Yeni Vakalar</h6>
+                </div>
+                <div class="c-new" id="newDeaths">
+                    <h3>+<%= divideNumber(data.todayDeaths) %>
+                    </h3>
+                    <h6>Yeni Vefat</h6>
+                </div>
+                <div class="c-info" style="width: 300px; margin-left: 20px; position: absolute; top:80px;">
+                    <p><i class="fas fa-info-circle" style="font-size: 1.5rem;"></i> Günlük vaka ve ölüm sayıları saat
+                        24.00' dan sonra sıfırlanmaktadır.</p>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="c-details-container" style="color:rgb(75, 192, 192);">
+
+            <div class="row">
+                <div class="col-sm c-details">
+                    <h2>
+                        <%= divideNumber(data.cases) %>
+                    </h2>
+                    <h6 class="text-muted">Toplam Vaka</h6>
+                </div>
+                <div class="col-sm c-details">
+                    <h2>
+                        <%= divideNumber(data.deaths) %>
+                    </h2>
+                    <h6 class="text-muted">Toplam Vefat</h6>
+                </div>
+                <div class="col-sm c-details">
+                    <h2>
+                        <%= divideNumber(data.tests) %>
+                    </h2>
+                    <h6 class="text-muted">Toplam Test</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm c-details">
+                    <h2>
+                        <%= divideNumber(data.active) %>
+                    </h2>
+                    <h6 class="text-muted">Aktif Hasta</h6>
+                </div>
+                <div class="col-sm c-details">
+                    <h2>
+                        <%= divideNumber(data.population) %>
+                    </h2>
+                    <h6 class="text-muted">Nüfus</h6>
+                </div>
+                <div class="col-sm c-details">
+                    <h2>
+                        <%= divideNumber(data.casesPerOneMillion) %> /M
+                    </h2>
+                    <h6 class="text-muted">Milyon Başına Vaka</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm c-details">
+                    <h2>
+                        <%= divideNumber(data.deathsPerOneMillion) %> /M
+                    </h2>
+                    <h6 class="text-muted">Milyon Başına Ölüm</h6>
+                </div>
+                <div class="col-sm c-details">
+                    <h2>
+                        <%= divideNumber(data.critical) %>
+                    </h2>
+                    <h6 class="text-muted">Kritik Hasta</h6>
+                </div>
+                <div class="col-sm c-details">
+                    <h2>
+                        <%= divideNumber(data.recovered ) %>
+                    </h2>
+                    <h6 class="text-muted">İyileşen</h6>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="charts" style="width: 100%; height: auto;">
+            <h1 class="text-center">Covid 19 <%= data.country %> Günlere göre Grafikler</h1>
+            <br><br><br><br>
+            <canvas id="historicalCases" width="200" height="100"></canvas>
+            <br><br><br><br>
+            <canvas id="historicalDeaths" width="200" height="100"></canvas>
+            <br><br><br><br>
+            <div class="container col-lg-4">
+                <canvas id="pieChart" width="200" height="100"></canvas>
+            </div>
+
+        </div>
+    </div>
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <script src="../js/country.js"></script>
+</body>
+
+</html>
