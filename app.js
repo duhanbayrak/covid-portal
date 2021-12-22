@@ -3,7 +3,7 @@ const { response } = require('express');
 
 const express = require('express'),
     app = express(),
-    PORT = process.env.PORT || 4000,
+    PORT = process.env.PORT || 80,
     bodyParser = require("body-parser"),
     nodemon = require("nodemon"),
     request = require('request'),
@@ -199,4 +199,4 @@ app.get('/usa', function (req, res) {
 
 })
 
-//app.listen(PORT, () => console.log("Example app listening on port port!"));
+app.listen(PORT, () => console.log("Example app listening on port port!"));
