@@ -159,33 +159,9 @@ app.get('/turkey', function (req, res) {
         var vaka_ilkon_il = sortingCases.slice(0, 10),
             vaka_sonon_il = sortingCases.slice(-10)
 
-        // Sağlık Bakanlığından Aşı Verilerini Scrapper API ile çekme
-        request(`http://api.scraperapi.com/?api_key=e28d1175a925dd4a325f0a54ba5bdafd&url=${url}&render=true`, (err, response, body) => {
-            const html = response.body;
-
-            const $ = cheerio.load(html);
-
-            var doz1_oran = $('.dozturkiyeortalamasi').text();
-            var doz2_oran = $('.doz2turkiyeortalamasi').text();
-            var doz1_sayi = $('.doz1asisayisi').text();
-            var doz2_sayi = $('.doz2asisayisi').text();
-            var doz3_sayi = $('.doz3asisayisi').text();
-            var doz_toplam = $('.toplamasidozusayisi').text();
-
-            var vaccines = {
-                doz1_oran: doz1_oran,
-                doz2_oran: doz2_oran,
-                doz1_sayi: doz1_sayi,
-                doz2_sayi: doz2_sayi,
-                doz3_sayi: doz3_sayi,
-                doz_toplam: doz_toplam
-            }
-
-            res.render("turkey", { vaka: il_vaka, asi: il_asi, sortingAsi: sortingAsi, asi_ilkon_il: asi_ilkon_il, asi_sonon_il: asi_sonon_il, vaka_ilkon_il: vaka_ilkon_il, vaka_sonon_il: vaka_sonon_il, vaccines:vaccines });
-        })
         
-
-
+        res.render("turkey", { vaka: il_vaka, asi: il_asi, sortingAsi: sortingAsi, asi_ilkon_il: asi_ilkon_il, asi_sonon_il: asi_sonon_il, vaka_ilkon_il: vaka_ilkon_il, vaka_sonon_il: vaka_sonon_il});
+        
     }
 
 })

@@ -20,7 +20,8 @@
 </head>
 
 <body style="background-color: #EEEE;">
-    <div class="container col-lg-11 c-container">
+    <div class="container col-lg-12 c-container">
+        <div class="container col-lg-11">
         <div class="c-head">
             <div class="back">
                 <a href="/"><i class="fas fa-arrow-left"></i></a>
@@ -44,57 +45,14 @@
                 </div>
             </div>
         </div>
-        <div class="c-details-container" id="c-details-container" style="color:rgb(75, 192, 192);"></div>
+
+        <div class="c-details-container" id="c-details-container-1" style="color:rgb(75, 192, 192);"></div>
         <br><br><br>
-        <h1 class="text-center baslik" >Aşılanma Verileri</h1>
-        <div class="c-details-container" style="color:#FF0075;">
-            <div class="row">
-                <div class="col-sm c-details">
-                    <h2>
-                        <%= vaccines.doz1_sayi %>
-                    </h2>
-                    <h6 class="text-muted">1.Doz Uygulanan</h6>
-                </div>
-                <div class="col-sm c-details">
-                    <h2>
-                        <%= vaccines.doz2_sayi %>
-                    </h2>
-                    <h6 class="text-muted">2.Doz Uygulanan</h6>
-                </div>
-                <div class="col-sm c-details">
-                    <h2>
-                        <%= vaccines.doz3_sayi %>
-                    </h2>
-                    <h6 class="text-muted">3.Doz Uygulanan</h6>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm c-details">
-                    <h2>
-                        <%= vaccines.doz1_oran %>
-                    </h2>
-                    <h6 class="text-muted">1.Doz Aşı Yapılma Oranı</h6>
-                </div>
-                <div class="col-sm c-details">
-                    <h2>
-                        <%= vaccines.doz2_oran %>
-                    </h2>
-                    <h6 class="text-muted">2.Doz Aşı Yapılma Oranı</h6>
-                </div>
-                <div class="col-sm c-details">
-                    <h2>
-                        <%= vaccines.doz_toplam %>
-                    </h2>
-                    <h6 class="text-muted">1., 2. Ve 3.Doz Toplam</h6>
-                </div>
-            </div>
-
-
-        </div>
-
-
+        <h1 class="text-center baslik">Aşılanma Verileri</h1>
+        <div class="c-details-container" id="c-details-container-2" style="color:#FF0075;"></div>
         <br><br><br>
-        <h1 class="text-center mb-4 mt-5 baslik" >100 Bin Kişide Vaka Sayısı ve Aşılanma Oranları</h1>
+    </div>
+        <h1 class="text-center mb-4 mt-5 baslik">100 Bin Kişide Vaka Sayısı ve Aşılanma Oranları</h1>
         <div class="il-isimleri"></div>
         <div class="svg-turkiye-haritasi">
             <svg version="1.1" id="svg-turkiye-haritasi" xmlns="http://www.w3.org/2000/svg"
@@ -797,7 +755,7 @@
                     </div>
                     <% }) %>
             </div>
-
+            
             <h3 class="text-center mt-5 text-light">En Yüksek <i class="fas fa-caret-up" style="color: #FF0075;"></i>
             </h3>
             <div class="sonon_il iller">
@@ -812,8 +770,8 @@
                 </div>
             </div>
         </div>
-        <hr>
-
+        
+        <br><hr><br>
         <div class="container col-lg-12  il_siralama bg-dark" style="border-radius: 150px;">
             <br>
             <h1 class="text-center">Aşı Oranı En Yüksek Ve En Düşük İller</h1>
@@ -866,19 +824,19 @@
 
             </div>
         </div>
+    </div>
 
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-            crossorigin="anonymous"></script>
-
-        <script src="js/turkey.js"></script>
+    <script src="js/turkey.js"></script>
 </body>
 
 </html>

@@ -1,6 +1,7 @@
 const newCases = document.querySelector("#newCases");
 const newDeaths = document.querySelector("#newDeaths");
-const c_details_container = document.querySelector("#c-details-container");
+const c_details_container_1 = document.querySelector("#c-details-container-1");
+const c_details_container_2 = document.querySelector("#c-details-container-2");
 const c_head = document.querySelector("#c-head");
 
 const element = document.querySelector('#svg-turkiye-haritasi');
@@ -11,14 +12,16 @@ function divideNumber(number) { //Sayıları noktalı hale getirmek için
 }
 
 async function loadData() {
-    const response = await fetch('https://api.apify.com/v2/key-value-stores/28ljlt47S5XEd1qIi/records/LATEST?disableRedirect=true');
-    const response_all = await fetch('https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/latest/owid-covid-latest.json');
-    const response_turkey = await fetch('https://disease.sh/v3/covid-19/countries/792')
-
     
-    const daily_data = await response.json();
+    const response_all = await fetch('https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/latest/owid-covid-latest.json');
+    const response_turkey = await fetch('https://disease.sh/v3/covid-19/countries/792');
+    const response_gunluk = await fetch('https://raw.githubusercontent.com/duhanbayrak/covid19_turkey_api/master/dataset/data.json')//Kendi yazdığım API
+
+
+   
     const all_data = await response_all.json();
     const turkey_daily_data = await response_turkey.json();
+    const gunluk_veri = await response_gunluk.json();
 
     c_head.innerHTML = `
         <h1><i class="fas fa-globe-europe"></i>
@@ -27,21 +30,21 @@ async function loadData() {
         <div class="col-sm c-details" >
             <h6>Nufüs</h6>  
             <h5>
-                ${divideNumber(all_data.TUR.population)}
+                ${divideNumber(turkey_daily_data.population)}
             </h5>
             
         </div>`;
     newCases.innerHTML = `
-                <h3>+${divideNumber(daily_data.dailyInfected)}</h3>
+                <h3>+${gunluk_veri.todayCases}</h3>
                 <h6>Yeni Vakalar</h6>
             `;
 
     newDeaths.innerHTML = `
-                <h3>+${divideNumber(daily_data.dailyDeceased)}</h3>
+                <h3>+${gunluk_veri.todayDeaths}</h3>
                 <h6>Yeni Ölüm</h6>
             `;
 
-    c_details_container.innerHTML += `
+    c_details_container_1.innerHTML += `
         <div class="row">
             <div class="col-sm c-details">
                 <h2>
@@ -65,19 +68,19 @@ async function loadData() {
     <div class="row">
         <div class="col-sm c-details">
             <h2>
-                %${divideNumber((Number(all_data.TUR.total_cases * 100) / Number(all_data.TUR.population)).toFixed(2))}
+                %${divideNumber((Number(turkey_daily_data.cases * 100) / Number(turkey_daily_data.population)).toFixed(2))}
             </h2>
             <h6 class="text-muted">Nüfusa Göre Vaka Oranı</h6>
         </div>
         <div class="col-sm c-details">
             <h2>
-                %${divideNumber((Number(all_data.TUR.total_cases * 100) / Number(all_data.TUR.total_tests)).toFixed(2))}
+                %${divideNumber((Number(turkey_daily_data.cases * 100) / Number(turkey_daily_data.tests)).toFixed(2))}
             </h2>
             <h6 class="text-muted">Yapılan Testlerin Pozitif Çıkma Oranı</h6>
         </div>
         <div class="col-sm c-details">
             <h2>
-                %${divideNumber((Number(all_data.TUR.total_deaths * 100) / Number(all_data.TUR.total_cases)).toFixed(2))}
+                %${divideNumber((Number(turkey_daily_data.deaths * 100) / Number(turkey_daily_data.cases)).toFixed(2))}
             </h2>
             <h6 class="text-muted">Ölüm Oranı</h6>
             
@@ -93,18 +96,60 @@ async function loadData() {
         </div>
         <div class="col-sm c-details">
             <h2>
-                ${divideNumber(daily_data.dailyRecovered)}
+                ${gunluk_veri.todayRecovered}
             </h2>
             <h6 class="text-muted">Bugün İyileşen</h6>
         </div>
         <div class="col-sm c-details">
             <h2>
-                ${divideNumber(all_data.TUR.new_tests)}
+                ${gunluk_veri.todayTests}
             </h2>
             <h6 class="text-muted">Bugünkü Test</h6>
         </div>
     </div>
     `;
+    c_details_container_2.innerHTML += `
+        <div class="row">
+                <div class="col-sm c-details">
+                    <h2>
+                        ${gunluk_veri.first_vaccines}
+                    </h2>
+                    <h6 class="text-muted">1.Doz Uygulanan</h6>
+                </div>
+                <div class="col-sm c-details">
+                    <h2>
+                        ${gunluk_veri.second_vaccines}
+                    </h2>
+                    <h6 class="text-muted">2.Doz Uygulanan</h6>
+                </div>
+                <div class="col-sm c-details">
+                    <h2>
+                        ${gunluk_veri.third_vaccines}
+                    </h2>
+                    <h6 class="text-muted">3.Doz Uygulanan</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm c-details">
+                    <h2>
+                        ${gunluk_veri.first_vaccines_ratio}
+                    </h2>
+                    <h6 class="text-muted">1.Doz Aşı Yapılma Oranı</h6>
+                </div>
+                <div class="col-sm c-details">
+                    <h2>
+                        ${gunluk_veri.second_vaccines_ratio}
+                    </h2>
+                    <h6 class="text-muted">2.Doz Aşı Yapılma Oranı</h6>
+                </div>
+                <div class="col-sm c-details">
+                    <h2>
+                        ${gunluk_veri.total_vaccines}
+                    </h2>
+                    <h6 class="text-muted">1., 2. Ve 3.Doz Toplam</h6>
+                </div>
+            </div>
+            `;
     var ctx_pie1 = document.getElementById('pieChart1').getContext('2d');
     var pieChart1 = new Chart(ctx_pie1, {
         type: 'pie',
@@ -115,7 +160,7 @@ async function loadData() {
             ],
             datasets: [{
                 label: 'My First Dataset',
-                data: [((turkey_daily_data.deaths*100)/turkey_daily_data.cases).toFixed(1),((turkey_daily_data.recovered*100)/turkey_daily_data.cases).toFixed(1)],
+                data: [(turkey_daily_data.deaths), (turkey_daily_data.recovered)],
                 backgroundColor: [
                     'rgb(255, 99, 132)',
                     '#4E9F3D',
@@ -137,12 +182,12 @@ async function loadData() {
         type: 'pie',
         data: {
             labels: [
-                'Aşı Olanlar %',
+                'En Az 2 Doz Aşı Olanlar %',
                 'Aşı Olmanyanlar %',
             ],
             datasets: [{
                 label: 'My First Dataset',
-                data: [((all_data.TUR.people_vaccinated*100)/all_data.TUR.population).toFixed(1), (((all_data.TUR.population - all_data.TUR.people_vaccinated)*100)/all_data.TUR.population).toFixed(1)],
+                data: [((all_data.TUR.people_vaccinated * 100) / all_data.TUR.population).toFixed(1), (((all_data.TUR.population - all_data.TUR.people_vaccinated) * 100) / all_data.TUR.population).toFixed(1)],
                 backgroundColor: [
                     'rgb(54, 162, 235)',
                     'rgb(255, 99, 132)',
