@@ -3,7 +3,7 @@ const { response } = require('express');
 
 const express = require('express'),
     app = express(),
-    PORT = process.env.PORT || 80,
+    PORT = process.env.PORT || 3000,
     bodyParser = require("body-parser"),
     nodemon = require("nodemon"),
     request = require('request'),
