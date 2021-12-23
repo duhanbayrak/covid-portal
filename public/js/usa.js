@@ -6,10 +6,13 @@ const c_head = document.querySelector("#c-head");
 
 
 function divideNumber(number) { //Sayıları noktalı hale getirmek için
+
     return number.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1' + ".");
+
 }
 
 async function loadData() {
+
     const response_usa = await fetch('https://disease.sh/v3/covid-19/countries/840')
     const response = await fetch('https://disease.sh/v3/covid-19/historical/840?lastdays=all');
     const response_data = await fetch('https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/latest/owid-covid-latest.json');
@@ -24,7 +27,9 @@ async function loadData() {
             USA
         </h1>
         <div class="col-sm c-details" >
-            <h6>Nufüs</h6>  
+            <h6>
+                Nufüs
+            </h6>  
             <h5>
                 ${divideNumber(daily_data.population)}
             </h5>
@@ -35,13 +40,17 @@ async function loadData() {
         <h2>
             ${divideNumber(daily_data.population)}
         </h2>
-        <h6 class="text-muted">Nüfus</h6>
+        <h6 class="text-muted">
+            Nüfus
+        </h6>
     `;
     critical.innerHTML = `
         <h2>
             ${divideNumber(daily_data.critical)}
         </h2>
-        <h6 class="text-muted">Kritik Hasta</h6>
+        <h6 class="text-muted">
+            Kritik Hasta
+        </h6>
     
     `;
     var ctx_pie1 = document.getElementById('pieChart1').getContext('2d');
@@ -111,6 +120,7 @@ function get_historical_data() { //Burada is uzaktaki bir json dosyasından veri
     fetch(`https://disease.sh/v3/covid-19/historical/840?lastdays=all`)
         .then(res => res.json())
         .then(data => {
+
             var data_historical = JSON.stringify(data)
             let historical = JSON.parse(data_historical);
             const historical_cases = Object.values(historical.timeline.cases);
@@ -184,6 +194,7 @@ function get_historical_data() { //Burada is uzaktaki bir json dosyasından veri
             fetch(`https://disease.sh/v3/covid-19/countries/${country}`)
                 .then(res => res.json())
                 .then(dataCountry => {
+                    
                     var country_str = JSON.stringify(dataCountry)
                     let country_parse = JSON.parse(country_str);
 

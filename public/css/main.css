@@ -15,7 +15,7 @@
   font-family: 'Montserrat', sans-serif;
 }
 .world-map path {
-  fill: #FF0075; stroke: white;
+  fill: #519259; stroke: white;
   cursor: pointer;
 }
 .world-map path:hover {

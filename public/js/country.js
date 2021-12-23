@@ -17,7 +17,10 @@ async function loadData() {
             Turkey
         </h1>
         <div class="col-sm c-details" >
-            <h6>Nufüs</h6>  
+            <h6>
+                Nufüs
+            </h6>
+
             <h5>
                 ${divideNumber(all_data.TUR.population)}
             </h5>
@@ -25,12 +28,16 @@ async function loadData() {
         </div>`;
     newCases.innerHTML = `
                 <h3>+${divideNumber(daily_data.dailyInfected)}</h3>
-                <h6>Yeni Vakalar</h6>
+                <h6>
+                    Yeni Vakalar
+                </h6>
             `;
 
     newDeaths.innerHTML = `
                 <h3>+${divideNumber(daily_data.dailyDeceased)}</h3>
-                <h6>Yeni Ölüm</h6>
+                <h6>
+                    Yeni Ölüm
+                </h6>
             `;
 
     c_details_container.innerHTML = `
@@ -39,19 +46,25 @@ async function loadData() {
                 <h2>
                     ${divideNumber(all_data.TUR.total_cases)}
                 </h2>
-            <h6 class="text-muted">Toplam Vaka</h6>
+            <h6 class="text-muted">
+                Toplam Vaka
+            </h6>
         </div>
         <div class="col-sm c-details">
             <h2>
                 ${divideNumber(all_data.TUR.total_deaths)}
             </h2>
-            <h6 class="text-muted">Toplam Vefat</h6>
+            <h6 class="text-muted">
+                Toplam Vefat
+            </h6>
         </div>
         <div class="col-sm c-details">
             <h2>
                 ${divideNumber(all_data.TUR.total_tests)}
             </h2>
-            <h6 class="text-muted">Toplam Test</h6>
+            <h6 class="text-muted">
+                Toplam Test
+            </h6>
         </div>
     </div>
     <div class="row">
@@ -59,19 +72,25 @@ async function loadData() {
             <h2>
                 %${divideNumber((Number(all_data.TUR.total_cases * 100) / Number(all_data.TUR.population)).toFixed(2))}
             </h2>
-            <h6 class="text-muted">Nüfusa Göre Vaka Oranı</h6>
+            <h6 class="text-muted">
+                Nüfusa Göre Vaka Oranı
+            </h6>
         </div>
         <div class="col-sm c-details">
             <h2>
                 %${divideNumber((Number(all_data.TUR.total_cases * 100) / Number(all_data.TUR.total_tests)).toFixed(2))}
             </h2>
-            <h6 class="text-muted">Yapılan Testlerin Pozitif Çıkma Oranı</h6>
+            <h6 class="text-muted">
+                Yapılan Testlerin Pozitif Çıkma Oranı
+            </h6>
         </div>
         <div class="col-sm c-details">
             <h2>
                 %${divideNumber((Number(all_data.TUR.total_deaths * 100) / Number(all_data.TUR.total_cases)).toFixed(2))}
             </h2>
-            <h6 class="text-muted">Ölüm Oranı</h6>
+            <h6 class="text-muted">
+                Ölüm Oranı
+            </h6>
             
         </div>
     </div>
@@ -80,19 +99,25 @@ async function loadData() {
             <h2>
                 ${divideNumber(all_data.TUR.people_vaccinated)}
             </h2>
-            <h6 class="text-muted">1. Doz Aşı Uygulanan</h6>
+            <h6 class="text-muted">
+                1. Doz Aşı Uygulanan
+            </h6>
         </div>
         <div class="col-sm c-details">
             <h2>
                 ${divideNumber(all_data.TUR.people_fully_vaccinated)}
             </h2>
-            <h6 class="text-muted">2. Doz Aşı Uygulanan</h6>
+            <h6 class="text-muted">
+                2. Doz Aşı Uygulanan
+            </h6>
         </div>
         <div class="col-sm c-details">
             <h2>
                 %${divideNumber(all_data.TUR.people_vaccinated_per_hundred)} 
             </h2>
-            <h6 class="text-muted">Her 100 Kişide Aşılama</h6>
+            <h6 class="text-muted">
+                Her 100 Kişide Aşılama
+            </h6>
         </div>
     </div>
     <div class="row">
@@ -100,19 +125,25 @@ async function loadData() {
             <h2>
                 ${divideNumber(all_data.TUR.hospital_beds_per_thousand)} /Bin
             </h2>
-            <h6 class="text-muted">Hastane Yatak Doluluk Oranı</h6>
+            <h6 class="text-muted">
+                Hastane Yatak Doluluk Oranı
+            </h6>
         </div>
         <div class="col-sm c-details">
             <h2>
                 ${divideNumber(daily_data.dailyRecovered)}
             </h2>
-            <h6 class="text-muted">Bugün İyileşen</h6>
+            <h6 class="text-muted">
+                Bugün İyileşen
+            </h6>
         </div>
         <div class="col-sm c-details">
             <h2>
                 ${divideNumber(all_data.TUR.new_tests)}
             </h2>
-            <h6 class="text-muted">Bugünkü Test</h6>
+            <h6 class="text-muted">
+                Bugünkü Test
+            </h6>
         </div>
     </div>
     `;
@@ -181,6 +212,7 @@ function get_historical_data() { //Burada is uzaktaki bir json dosyasından veri
     fetch(`https://disease.sh/v3/covid-19/historical/${country}?lastdays=all`)
         .then(res => res.json())
         .then(data => {
+
             var data_historical = JSON.stringify(data)
             let historical = JSON.parse(data_historical);
             const historical_cases = Object.values(historical.timeline.cases);
@@ -190,10 +222,15 @@ function get_historical_data() { //Burada is uzaktaki bir json dosyasından veri
             var hist_deaths = [];
 
             historical_cases.forEach(element => {
-                hist_cases.push(element)
+
+                hist_cases.push(element);
+
             });
+
             historical_deaths.forEach(element => {
-                hist_deaths.push(element)
+
+                hist_deaths.push(element);
+
             });
 
             var dailyCases = [],
@@ -201,13 +238,18 @@ function get_historical_data() { //Burada is uzaktaki bir json dosyasından veri
 
             
             for (let index = 0; index < hist_cases.length; index++) {
-                dailyCases.push(parseInt(hist_cases[index + 1]) - parseInt(hist_cases[index]))
-                dailyDeaths.push(parseInt(hist_deaths[index + 1]) - parseInt(hist_deaths[index]))
+
+                dailyCases.push(parseInt(hist_cases[index + 1]) - parseInt(hist_cases[index]));
+                dailyDeaths.push(parseInt(hist_deaths[index + 1]) - parseInt(hist_deaths[index]));
+
             }
 
-            var tarih = []
+            var tarih = [];
+
             for (let index = 1; index < historical_cases.length; index++) {
+
                 tarih.push(index + '.' + 'Gün')
+
             }
 
 
@@ -231,6 +273,7 @@ function get_historical_data() { //Burada is uzaktaki bir json dosyasından veri
                     }
                 }
             });
+
             var ctx = document.getElementById('historicalDeaths').getContext('2d');
             var deathChart = new Chart(ctx, {
                 type: 'bar',
@@ -251,9 +294,11 @@ function get_historical_data() { //Burada is uzaktaki bir json dosyasından veri
                     }
                 }
             });
+
             fetch(`https://disease.sh/v3/covid-19/countries/${country}`)
                 .then(res => res.json())
                 .then(dataCountry => {
+                    
                     var country_str = JSON.stringify(dataCountry)
                     let country_parse = JSON.parse(country_str);
 

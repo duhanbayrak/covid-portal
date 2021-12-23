@@ -3,7 +3,7 @@
 
 <head>
     <%- include('./partials/head.ejs') %>
-    <title>Covid19-World</title>
+        <title>Covid19-World</title>
 </head>
 
 <body style="background-color: #EEEE;">
@@ -15,41 +15,23 @@
             <div class="global-btn">
                 <a href=""><i class="fas fa-globe"></i> <span>Küresel</span> </a>
             </div>
-
             <div class="selected-country" id="selected-country">
                 <i class="fas fa-globe-europe" style="color: #69DADB;"></i>
-                <h5 class="px-2 mt-2">
-                    Dünya
-                </h5>
-
+                <h5 class="px-2 mt-2">Dünya</h5>
             </div>
-
         </div>
         <div class="c-body mx-3 mt-5">
             <div id="c-head">
-                <h1><i class="fas fa-globe-europe"></i>
-                    Dünya
-                </h1>
-                <div class="col-sm c-details" id="population">
-                    
-                </div>
+                <h1><i class="fas fa-globe-europe"></i>Dünya</h1>
+                <div class="col-sm c-details" id="population"></div>
             </div>
-
             <div class="c-info">
-
-                <div class="c-new" id="newCases">
-                   
-                </div>
-                <div class="c-new" id="newDeaths">
-                    
-                </div>
+                <div class="c-new" id="newCases"></div>
+                <div class="c-new" id="newDeaths"></div>
                 <div class="c-info" style="width: 300px; margin-left: 20px; position: absolute; top:80px;">
-                    <p><i class="fas fa-info-circle" style="font-size: 1.5rem;"></i> Günlük vaka ve ölüm sayıları saat
-                        24.00' dan sonra sıfırlanmaktadır.</p>
+                    <p><i class="fas fa-info-circle" style="font-size: 1.5rem;"></i> Günlük vaka ve ölüm sayıları saat 24.00' dan sonra sıfırlanmaktadır.</p>
                 </div>
-
             </div>
-
         </div>
         <div class="c-details-container" style="color:rgb(75, 192, 192);">
             <div class="row">
@@ -69,7 +51,6 @@
             </div>
         </div>
     </div>
-
     <div class="container">
         <div class="charts" style="width: 100%; height: auto;">
             <h1 class="text-center">Covid 19 Dünya Günlere göre Grafikler</h1>
@@ -81,10 +62,8 @@
             <div class="container col-lg-4"><canvas id="pieChart" width="200" height="100"></canvas></div>
         </div>
     </div>
-
     <%- include('./partials/footer.ejs') %>
-
-    <script src="js/world.js"></script>
+        <script src="js/world.js"></script>
 </body>
 
 </html>

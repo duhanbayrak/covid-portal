@@ -1,39 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <%- include('./partials/head.ejs') %>
-    <title>Covid19-News</title>
+        <title>Covid19-News</title>
 </head>
-
 <body>
-
     <%- include('./partials/navbar.ejs') %>
-    <div class="container col-lg-12" style="display: flex; flex-direction: row; flex-wrap: wrap;">
-        <% news.forEach(element=> { %>
-            <div class="container col-lg-4 mt-4">
-                <div class="card mb-3" style="height: auto;">
-                    <img src="<%= element.urlToImage %> " class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"><%= element.title %> </h5>
-                        <p class="card-text"><%= element.description %> </p>
-                        <p class="card-text"><small class="text-muted"><%= element.publishedAt%> </small></p>
-                        <a class="btn btn-info" href="<%= element.url %> ">Haber Detay</a>
+        <div class="container col-lg-12" style="display: flex; flex-direction: row; flex-wrap: wrap;">
+            <% news.forEach(element=> { %>
+                <div class="container col-lg-4 mt-4">
+                    <div class="card mb-3" style="height: auto;">
+                        <img src="<%= element.urlToImage %> " class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= element.title %>
+                            </h5>
+                            <p class="card-text">
+                                <%= element.description %>
+                            </p>
+                            <p class="card-text"><small class="text-muted">
+                                    <%= element.publishedAt%>
+                                </small></p>
+                            <a class="btn btn-info" href="<%= element.url %> ">Haber Detay</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-
-
-            <% }) %>
-    </div>
-
-
-    <%- include('./partials/footer.ejs') %>
-    <script src="js/index.js"></script>
+                <% }) %>
+        </div>
+        <%- include('./partials/footer.ejs') %>
+            <script src="js/index.js"></script>
 </body>
-
-
-
 </div>
+
 </html>

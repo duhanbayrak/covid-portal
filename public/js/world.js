@@ -9,13 +9,16 @@ const newCases = document.querySelector("#newCases"),
     caseRate = document.querySelector("#vaka-oran"),
     deathRate = document.querySelector("#vefat-oran"),
     critical = document.querySelector("#kritik-hasta"),
-    recovered = document.querySelector("#toplam-iyilesen")
+    recovered = document.querySelector("#toplam-iyilesen");
 
 function divideNumber(number) {
+
     return number.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1' + ".");
+
 }
 
 async function loadData() {
+
     const response = await fetch('https://disease.sh/v3/covid-19/all');
     const response_historical = await fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=all')
 
@@ -48,7 +51,9 @@ async function loadData() {
 
 
     population.innerHTML = `
-        <h6>Nufüs</h6>
+        <h6>
+            Nufüs
+        </h6>
         <h5>
             ${divideNumber(data.population)}
         </h5>
@@ -56,52 +61,75 @@ async function loadData() {
 
     newCases.innerHTML = `
         <h3>+${divideNumber(data.todayCases)}</h3>
-        <h6>Yeni Vakalar</h6>`;
+        <h6>
+            Yeni Vakalar
+        </h6>`;
 
     newDeaths.innerHTML = `
         <h3>+${divideNumber(data.todayDeaths)}</h3>
-        <h6>Yeni Ölüm</h6>`;
+        <h6>
+            Yeni Ölüm
+        </h6>`;
 
     totalCases.innerHTML = `
         <h3>${divideNumber(data.cases)}</h3>
-        <h6 class="text-muted">Toplam Vaka</h6>`;
+        <h6 class="text-muted">
+            Toplam Vaka
+        </h6>`;
 
     totalDeaths.innerHTML = `
         <h3>${divideNumber(data.deaths)}</h3>
-        <h6 class="text-muted">Toplam Ölüm</h6>`;
+        <h6 class="text-muted">
+            Toplam Ölüm
+        </h6>`;
 
     totalTests.innerHTML = `
         <h3>${divideNumber(data.tests)}</h3>
-        <h6 class="text-muted">Toplam Test</h6>`;
+        <h6 class="text-muted">
+            Toplam Test
+        </h6>`;
 
     positiveRate.innerHTML = `
         <h3>%${((data.cases) * 100 / (data.tests)).toFixed(2)}</h3>
-        <h6 class="text-muted">Yapılan Testlerin Pozitif Olma Oranı</h6>`;
+        <h6 class="text-muted">
+            Yapılan Testlerin Pozitif Olma Oranı
+        </h6>`;
 
     caseRate.innerHTML = `
         <h3>%${((data.cases) * 100 / (data.population)).toFixed(2)}</h3>
-        <h6 class="text-muted">Nüfusa Göre Vaka Oranı</h6>`;
+        <h6 class="text-muted">
+            Nüfusa Göre Vaka Oranı
+        </h6>`;
 
     deathRate.innerHTML = `
         <h3>%${((data.deaths) * 100 / (data.cases)).toFixed(2)}</h3>
-        <h6 class="text-muted">Ölüm Oranı</h6>`;
+        <h6 class="text-muted">
+            Ölüm Oranı
+        </h6>`;
 
     activeCases.innerHTML = `
         <h3>${divideNumber(data.active)}</h3>
-        <h6 class="text-muted">Aktif Vaka</h6>`;
+        <h6 class="text-muted">
+            Aktif Vaka
+        </h6>`;
 
     critical.innerHTML = `
         <h3>${divideNumber(data.critical)}</h3>
-        <h6 class="text-muted">Kritik Hasta</h6>`;
+        <h6 class="text-muted">
+            Kritik Hasta
+        </h6>`;
 
     recovered.innerHTML = `
         <h3>${divideNumber(data.recovered)}</h3>
-        <h6 class="text-muted">Toplam İyileşen</h6>`;
+        <h6 class="text-muted">
+            Toplam İyileşen
+        </h6>`;
 
 
     var tarih = []
     for (let index = 1; index < historical_cases.length; index++) {
-        tarih.push(index + '.' + 'Gün')
+
+        tarih.push(index + '.' + 'Gün');
     }
 
     var ctx = document.getElementById('historicalCases').getContext('2d');

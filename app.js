@@ -21,6 +21,10 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.get('/', function (req, res) {
+
+    var data;
+    var covidData;
+
     var options = {
         "method": "GET",
         "url": "https://disease.sh/v3/covid-19/countries",
@@ -30,10 +34,21 @@ app.get('/', function (req, res) {
     };
     request(options, function (error, response) {
         if (error) throw new Error(error);
-        var data = JSON.parse(response.body);
-        res.render("index", { data: data });
+        data = JSON.parse(response.body);
 
+        request("https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/latest/owid-covid-latest.json", (err,resp) => {
+            try {
+                covidData = JSON.parse(resp.body);
+                res.render("index", { data: data, covidData:covidData});
+                console.log(covidData.TUR.new_cases)
+            } catch (err) {
+               console.log(err) 
+            }
+        })
+        
     });
+    
+        
 })
 
 app.get('/country/:country', function (req, res) {
@@ -198,5 +213,204 @@ app.get('/usa', function (req, res) {
 
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.listen(PORT, () => console.log("Example app listening on port port!"));

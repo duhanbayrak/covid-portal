@@ -8,7 +8,9 @@ const element = document.querySelector('#svg-turkiye-haritasi');
 const info = document.querySelector('.il-isimleri');
 
 function divideNumber(number) { //Sayıları noktalı hale getirmek için
+
     return number.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1' + ".");
+
 }
 
 async function loadData() {
@@ -28,7 +30,9 @@ async function loadData() {
             Turkey
         </h1>
         <div class="col-sm c-details" >
-            <h6>Nufüs</h6>  
+            <h6>
+                Nufüs
+            </h6>  
             <h5>
                 ${divideNumber(turkey_daily_data.population)}
             </h5>
@@ -36,12 +40,16 @@ async function loadData() {
         </div>`;
     newCases.innerHTML = `
                 <h3>+${gunluk_veri.todayCases}</h3>
-                <h6>Yeni Vakalar</h6>
+                <h6>
+                    Yeni Vakalar
+                </h6>
             `;
 
     newDeaths.innerHTML = `
                 <h3>+${gunluk_veri.todayDeaths}</h3>
-                <h6>Yeni Ölüm</h6>
+                <h6>
+                    Yeni Ölüm
+                </h6>
             `;
 
     c_details_container_1.innerHTML += `
@@ -50,19 +58,25 @@ async function loadData() {
                 <h2>
                     ${divideNumber(all_data.TUR.total_cases)}
                 </h2>
-            <h6 class="text-muted">Toplam Vaka</h6>
+            <h6 class="text-muted">
+                Toplam Vaka
+            </h6>
         </div>
         <div class="col-sm c-details">
             <h2>
                 ${divideNumber(all_data.TUR.total_deaths)}
             </h2>
-            <h6 class="text-muted">Toplam Vefat</h6>
+            <h6 class="text-muted">
+                Toplam Vefat
+            </h6>
         </div>
         <div class="col-sm c-details">
             <h2>
                 ${divideNumber(all_data.TUR.total_tests)}
             </h2>
-            <h6 class="text-muted">Toplam Test</h6>
+            <h6 class="text-muted">
+                Toplam Test
+            </h6>
         </div>
     </div>
     <div class="row">
@@ -70,19 +84,25 @@ async function loadData() {
             <h2>
                 %${divideNumber((Number(turkey_daily_data.cases * 100) / Number(turkey_daily_data.population)).toFixed(2))}
             </h2>
-            <h6 class="text-muted">Nüfusa Göre Vaka Oranı</h6>
+            <h6 class="text-muted">
+                Nüfusa Göre Vaka Oranı
+            </h6>
         </div>
         <div class="col-sm c-details">
             <h2>
                 %${divideNumber((Number(turkey_daily_data.cases * 100) / Number(turkey_daily_data.tests)).toFixed(2))}
             </h2>
-            <h6 class="text-muted">Yapılan Testlerin Pozitif Çıkma Oranı</h6>
+            <h6 class="text-muted">
+                Yapılan Testlerin Pozitif Çıkma Oranı
+            </h6>
         </div>
         <div class="col-sm c-details">
             <h2>
                 %${divideNumber((Number(turkey_daily_data.deaths * 100) / Number(turkey_daily_data.cases)).toFixed(2))}
             </h2>
-            <h6 class="text-muted">Ölüm Oranı</h6>
+            <h6 class="text-muted">
+                Ölüm Oranı
+            </h6>
             
         </div>
     </div>
@@ -92,19 +112,25 @@ async function loadData() {
             <h2>
                 ${divideNumber(all_data.TUR.hospital_beds_per_thousand)} /Bin
             </h2>
-            <h6 class="text-muted">Hastane Yatak Doluluk Oranı</h6>
+            <h6 class="text-muted">
+                Hastane Yatak Doluluk Oranı
+            </h6>
         </div>
         <div class="col-sm c-details">
             <h2>
                 ${gunluk_veri.todayRecovered}
             </h2>
-            <h6 class="text-muted">Bugün İyileşen</h6>
+            <h6 class="text-muted">
+                Bugün İyileşen
+            </h6>
         </div>
         <div class="col-sm c-details">
             <h2>
                 ${gunluk_veri.todayTests}
             </h2>
-            <h6 class="text-muted">Bugünkü Test</h6>
+            <h6 class="text-muted">
+                Bugünkü Test
+            </h6>
         </div>
     </div>
     `;
@@ -114,19 +140,25 @@ async function loadData() {
                     <h2>
                         ${gunluk_veri.first_vaccines}
                     </h2>
-                    <h6 class="text-muted">1.Doz Uygulanan</h6>
+                    <h6 class="text-muted">
+                        1.Doz Uygulanan
+                    </h6>
                 </div>
                 <div class="col-sm c-details">
                     <h2>
                         ${gunluk_veri.second_vaccines}
                     </h2>
-                    <h6 class="text-muted">2.Doz Uygulanan</h6>
+                    <h6 class="text-muted">
+                        2.Doz Uygulanan
+                    </h6>
                 </div>
                 <div class="col-sm c-details">
                     <h2>
                         ${gunluk_veri.third_vaccines}
                     </h2>
-                    <h6 class="text-muted">3.Doz Uygulanan</h6>
+                    <h6 class="text-muted">
+                        3.Doz Uygulanan
+                    </h6>
                 </div>
             </div>
             <div class="row">
@@ -134,22 +166,29 @@ async function loadData() {
                     <h2>
                         ${gunluk_veri.first_vaccines_ratio}
                     </h2>
-                    <h6 class="text-muted">1.Doz Aşı Yapılma Oranı</h6>
+                    <h6 class="text-muted">
+                        1.Doz Aşı Yapılma Oranı
+                    </h6>
                 </div>
                 <div class="col-sm c-details">
                     <h2>
                         ${gunluk_veri.second_vaccines_ratio}
                     </h2>
-                    <h6 class="text-muted">2.Doz Aşı Yapılma Oranı</h6>
+                    <h6 class="text-muted">
+                        2.Doz Aşı Yapılma Oranı
+                    </h6>
                 </div>
                 <div class="col-sm c-details">
                     <h2>
                         ${gunluk_veri.total_vaccines}
                     </h2>
-                    <h6 class="text-muted">1., 2. Ve 3.Doz Toplam</h6>
+                    <h6 class="text-muted">
+                        1., 2. Ve 3.Doz Toplam
+                    </h6>
                 </div>
             </div>
             `;
+
     var ctx_pie1 = document.getElementById('pieChart1').getContext('2d');
     var pieChart1 = new Chart(ctx_pie1, {
         type: 'pie',
@@ -273,11 +312,13 @@ function get_historical_data() { //Burada is uzaktaki bir json dosyasından veri
     fetch("https://raw.githubusercontent.com/ozanerturk/covid19-turkey-api/master/dataset/timeline.json")
         .then(res => res.json())
         .then(vaka => {
+
             var vakajson = JSON.stringify(vaka)
             let vakaJsonParse = JSON.parse(vakajson);
             const tableData = Object.values(vakaJsonParse);
 
             tableData.forEach((el) => {
+
                 date.push(el.date);
                 cases.push(el.cases);
                 patients.push(el.patients);
@@ -351,6 +392,7 @@ function get_historical_data() { //Burada is uzaktaki bir json dosyasından veri
             fetch('https://disease.sh/v3/covid-19/historical/792?lastdays=all')
                 .then(res => res.json())
                 .then(data => {
+                    
                     var data_historical = JSON.stringify(data)
                     let historical = JSON.parse(data_historical);
                     const historical_cases = Object.values(historical.timeline.cases);
