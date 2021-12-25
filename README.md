@@ -4,8 +4,7 @@ Node JS ile Covid 19 ülkelere göre güncel verilerin ve istatistiklerin bulund
 
 Web Scraping
 
-<br>
-<h5></h5>
+<h5>NPM Paketleri</h5>
 <ul>
   <li>Express</li>
   <li>Axios</li>
@@ -25,13 +24,7 @@ Web Scraping
     <li><a href="ozanerturk/covid19-turkey-api">ozanerturk/covid19-turkey-api</a></li>
     <li><a href="https://covidtracking.com/data/api">https://covidtracking.com/data/api</a></li>
 </ul>     
-     
-     
-     
-     
-     
-   
-     
+
 <br>
 <a href="https://coronaportal.herokuapp.com/">BURADAN ULAŞABİLİRSİNİZ...</a>
 
