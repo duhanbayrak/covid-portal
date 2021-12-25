@@ -18,7 +18,13 @@ Web Scraping
   <li>Scraperapi</li>
 </ul>
      
-     
+<h1>KAYNAKLAR</h1>
+<ul>
+    <li><a href="https://covid19.saglik.gov.tr/">T.C. SAĞLIK BAKANLIĞI</a></li>
+    <li><a href="https://disease.sh/">https://disease.sh/</a></li>
+    <li><a href="ozanerturk/covid19-turkey-api">ozanerturk/covid19-turkey-api</a></li>
+    <li><a href="https://covidtracking.com/data/api">https://covidtracking.com/data/api</a></li>
+</ul>     
      
      
      
