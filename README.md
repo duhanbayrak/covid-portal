@@ -1,6 +1,27 @@
 Covid 19 ülkelere göre güncel verilerin ve istatistiklerin bulunduğu Web uygulaması
 
 <br>
+<ul>
+  <li>Express</li>
+  <li>Axios</li>
+  <li>Cheerio</li>
+  <li>Ejs</li>
+  <li>File-system</li>
+  <li>jsdom</li>
+  <li>Nodemon</li>
+  <li>Request</li>
+  <li>Scraperapi</li>
+</ul>
+     
+     
+     
+     
+     
+     
+     
+   
+     
+<br>
 <a href="https://coronaportal.herokuapp.com/">BURADAN ULAŞABİLİRSİNİZ...</a>
 
 
