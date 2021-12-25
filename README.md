@@ -1,6 +1,11 @@
-Covid 19 ülkelere göre güncel verilerin ve istatistiklerin bulunduğu Web uygulaması
+Node JS ile Covid 19 ülkelere göre güncel verilerin ve istatistiklerin bulunduğu Web uygulaması
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/800px-Node.js_logo.svg.png" alt="">
+
+Web Scraping
 
 <br>
+<h5></h5>
 <ul>
   <li>Express</li>
   <li>Axios</li>
