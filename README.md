@@ -1,7 +1,7 @@
 Covid 19 ülkelere göre güncel verilerin ve istatistiklerin bulunduğu Web uygulaması
 
 <br>
-<a href="https://coronaportal.herokuapp.com/">BURADAN ULAŞABİLİRSİNİZ</a>
+<a href="https://coronaportal.herokuapp.com/">BURADAN ULAŞABİLİRSİNİZ...</a>
 
 
 <br><br><br>
