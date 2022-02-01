@@ -42,7 +42,7 @@ app.get('/', function (req, res) {
                 res.render("index", { data: data, covidData:covidData});
                 console.log(covidData.TUR.new_cases)
             } catch (err) {
-               console.log(err) 
+               console.log(err); 
             }
         })
         
